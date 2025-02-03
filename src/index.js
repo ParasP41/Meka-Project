@@ -3,15 +3,16 @@
 import dotenv from "dotenv";
 import connectDB from "../src/db/index.js";
 dotenv.config({ path: "./env" })
+import { app } from "./app.js";
 
 connectDB()
     .then(() => {
-        // app.on("error", (err) => {
-        //     console.log("Express is not working properly")
-        //     throw err
-        // })
+        app.on("error", (err) => {
+            console.log("Express is not working properly")
+            throw err
+        })
         app.listen(process.env.PORT || 4000, () => {
-            console.log(`server islistening on ${process.env.PORT}`);
+            console.log(`server is listening on ${process.env.PORT}`);
         })
     })
     .catch((err) => {
