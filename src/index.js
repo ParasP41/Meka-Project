@@ -7,10 +7,10 @@ import { app } from "./app.js";
 
 connectDB()
     .then(() => {
-        app.on("error", (err) => {
-            console.log("Express is not working properly")
-            throw err
-        })
+        // app.on("error", (err) => {
+        //     console.log("Express is not working properly")
+        //     throw err
+        // })
         app.listen(process.env.PORT || 4000, () => {
             console.log(`server is listening on ${process.env.PORT}`);
         })
