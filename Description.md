@@ -15,3 +15,15 @@ NOTE: we use app.use while setting the middleware (Mostly).
 7. In (src=>app.js) have express.static('public') to give the access of the /public directory to the browser
 
 8. In (src=>app.js) have cookie parser which is used to access the user's cookie and set the cookie
+
+9. There are two js files in utils folder which are ApiError.js and ApiResonse.js 
+
+10. In Model folder we write the DataBase Models
+
+11. The bcrypt package is a popular library used for hashing passwords in Node.js applications. It provides a secure way to store passwords by hashing them before saving them in a database.
+
+12. The Json Web Token JWT 
+
+13. Cloudnary pagekage take a files from local storage and upload to the Cloudinary and give use a URL.The code is in (utils=>cloudinary.js).
+
+14. multer is a middleware for handling file uploads in Node.js. It is commonly used to upload files to a server and process them before storing them locally or in a cloud storage service.

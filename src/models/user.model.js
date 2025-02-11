@@ -57,15 +57,17 @@ const userSchema = new mongoose.Schema({
 
 }, { timestamps: true });
 
-userSchema.pre("save", async function (next) {
-    if (!this.isModified("password")) return next();
-    this.password = bcrypt.hash(this.password, 10);
+userSchema.pre("save", async function (next) { //.pre is a middleware which will execute just before password is going to save.(we generally don't use arrow function in this type of bcrypt stuff).
+    if (!this.isModified("password")) return next(); //If password do not modified
+    this.password = await bcrypt.hash(this.password, 10); //If password modified
     next();
 })
 
-userSchema.methods.isPasswordCorrect = async function (password) {
+userSchema.methods.isPasswordCorrect = async function (password) { //this is a custom method to check if password is correct or not.
     return await bcrypt.compare(password, this.password)
 }
+
+
 
 userSchema.methods.generateAccessToken = async function () {
     return await jwt.sign({
